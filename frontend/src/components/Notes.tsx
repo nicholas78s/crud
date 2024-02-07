@@ -1,13 +1,10 @@
-//import React, { Component } from 'react'
 import { Component } from "react";
 import { fetchData } from "../App";
 
 interface NotesPropsType {
-  //isVisible: boolean
 }
 
 interface NotesStateType {
-  //isVisible: boolean,
   apiData: ApiDataType[]
 }
 
@@ -21,7 +18,6 @@ export default class Notes extends Component<NotesPropsType, NotesStateType> {
     super(props);
 
     this.state = {
-      //isVisible: this.props.isVisible,
       apiData: []
     }
   }
@@ -33,25 +29,15 @@ export default class Notes extends Component<NotesPropsType, NotesStateType> {
   }
 
   componentDidMount(): void {
-    // fetchData('GET', undefined, (jsonData: ApiDataType[]) => {
-    //   this.setState({apiData: jsonData});
-    // })
     this.reload();
   }
 
   handleNoteClose = (id: number) => {
     console.log('CLOSE:', id);
     fetchData('DELETE', id.toString(), () => {
-      console.log('DELETE set state');
-      //this.setState({apiData: []});
-      // fetchData('GET', undefined, (jsonData: ApiDataType[]) => {
-      //   this.setState({apiData: jsonData});
-      // })
       this.reload();
     })
   }
-
-  
 
   render() {
     return (

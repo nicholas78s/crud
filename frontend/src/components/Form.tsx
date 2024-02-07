@@ -9,8 +9,7 @@ interface FormStateType {
   note: string
 }
 
-// export class Form extends React.Component<FormPropsType, FormStateType> {
-  export class Form extends React.Component<FormPropsType, FormStateType> {
+export class Form extends React.Component<FormPropsType, FormStateType> {
   constructor (props: FormPropsType) {
     super (props);
     this.state = {note: ''}
@@ -18,7 +17,6 @@ interface FormStateType {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  //handleSubmit: React.FormEventHandler<HTMLFormElement> = (e: React.FormEvent<HTMLInputElement>) => {
   handleSubmit: React.FormEventHandler<HTMLFormElement> = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     this.props.onNoteSubmit(e, this.state);
@@ -27,13 +25,6 @@ interface FormStateType {
   handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const {name, value} = e.target;
     
-    // if (name === 'note')
-    //   this.setState({
-    //     [name]: value
-    //   });
-    // this.setState({
-    //   note: e.target.value
-    // });
     if (name === 'note')
       this.setState({
         [name]: value
